@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzt.Dao.TeacherMapper">
+    <resultMap id="teacherMap" type="Teacher">
+         <id column="tid" property="id"></id>
+        <result column="tname" property="name"></result>
+        <collection  property="studentList" ofType="student">
+            <result property="id" column="sid"></result>
+            <result property="name" column="sname"></result>
+            <result property="tid" column="tid"></result>
+        </collection>
+    </resultMap>
+     <select id="getAllTeacher" resultMap="teacherMap">
+         select s.id sid,s.name sname, t.name tname,t.id tid   from student s,teacher t where s.tid=t.id and t.id=#{id}
+     </select>
+</mapper>

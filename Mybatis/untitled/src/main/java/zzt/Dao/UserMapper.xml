@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zzt.Dao.UserMapper">
+<!--    column代表数据库里的字符段   properties代表实体类中的属性-->
+    <resultMap id="UserMap" type="User">
+         <result column="name" property="username"></result>
+    </resultMap>
+  <!--  <select id="getAllUser" resultMap="UserMap">
+          select * from  mybatis.user
+  </select>
+      &lt;!&ndash;  <select id="getUserById" resultType="User" parameterType="int">
+            select  * from mybatis.user where id=#{id}
+        </select>
+    <insert id="addUser" parameterType="User">
+          insert  into mybatis.user(name) values (#{name})
+    </insert>
+    <update id="updateUser" parameterType="User">
+          update mybatis.user set name  =#{name}  where id=#{id};
+    </update>
+    <delete id="deleteUser" parameterType="int">
+          delete  from  mybatis.user  where id=#{id}
+    </delete>
+    <select id="getUser" parameterType="String"  resultType="User">
+          select  * from mybatis.user where name like "%"#{name}"%"
+    </select>&ndash;&gt;
+    <select id="getUserByLimit" resultMap="UserMap" parameterType="map">
+        select  *from mybatis.user limit #{start},#{size}
+    </select>-->
+</mapper>
